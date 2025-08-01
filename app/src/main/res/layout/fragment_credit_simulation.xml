@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.fragment.CreditSimulationFragment">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/mainContentGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tvClientName,tvCreditLine,tvSelectAmount,sliderAmount,tvCurrentAmount,tvTerm,etTermInMonths,creditSummaryGroup,btnSolicitarCredito"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvClientName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cliente: Nombre del Cliente"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Cliente: Juan Pérez" />
+
+    <TextView
+        android:id="@+id/tvCreditLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Línea de Crédito Preaprobada: $10,000.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvClientName"
+        tools:text="Línea de Crédito Preaprobada: $15,000.00" />
+
+    <TextView
+        android:id="@+id/tvSelectAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Seleccione el Monto del Crédito:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCreditLine" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/sliderAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:valueFrom="1000.0"
+        android:valueTo="10000.0"
+        android:stepSize="500.0"
+        android:value="1000.0"
+        app:labelBehavior="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSelectAmount" />
+
+    <TextView
+        android:id="@+id/tvCurrentAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sliderAmount"
+        tools:text="$5,500.00" />
+
+    <TextView
+        android:id="@+id/tvTerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Plazo en Meses:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentAmount" />
+
+    <EditText
+        android:id="@+id/etTermInMonths"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ej. 12, 24, 36"
+        android:inputType="number"
+        android:minEms="5"
+        android:text="12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTerm" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/creditSummaryGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tvSummaryTitle,tvSimulatedAmount,tvSimulatedTerm,tvSimulatedInterest,tvSimulatedMonthlyPayment" />
+
+    <TextView
+        android:id="@+id/tvSummaryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Resumen del Crédito Simulado:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etTermInMonths" />
+
+    <TextView
+        android:id="@+id/tvSimulatedAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Monto: $0.00"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSummaryTitle"
+        tools:text="Monto: $5,500.00" />
+
+    <TextView
+        android:id="@+id/tvSimulatedTerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Plazo: 0 meses"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSimulatedAmount"
+        tools:text="Plazo: 12 meses" />
+
+    <TextView
+        android:id="@+id/tvSimulatedInterest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Interés: 0.0%"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSimulatedTerm"
+        tools:text="Interés: 5.00%" />
+
+    <TextView
+        android:id="@+id/tvSimulatedMonthlyPayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Cuota Mensual: $0.00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSimulatedInterest"
+        tools:text="Cuota Mensual: $461.50" />
+
+    <TextView
+        android:id="@+id/tvStatusMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSimulatedMonthlyPayment"
+        tools:text="Error: Algo salió mal."
+        tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/btnSolicitarCredito"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStatusMessage" />
+
+    <Button
+        android:id="@+id/btnSolicitarCredito"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Solicitar Crédito"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
